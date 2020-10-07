@@ -24,7 +24,7 @@ import tensorflow as tf
 import tf_extended as tfe
 import tf_utils
 from tensorflow.python.framework import ops
-from compiler.ast import flatten
+from funcy import flatten
 
 from datasets import dataset_factory
 from nets import nets_factory
