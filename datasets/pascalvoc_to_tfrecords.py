@@ -100,7 +100,7 @@ def _process_image(directory, name):
     truncated = []
     for obj in root.findall('object'):
         label = obj.find('name').text
-        labels.append(int(VOC_LABELS[label][0]))
+        labels.append(int(VOC_LABELS[label]))
         labels_text.append(label.encode('ascii'))
 
         if obj.find('difficult'):
