@@ -24,7 +24,6 @@ import tensorflow as tf
 import tf_extended as tfe
 import tf_utils
 from tensorflow.python.framework import ops
-from funcy import flatten
 
 from datasets import dataset_factory
 from nets import nets_factory
@@ -103,6 +102,16 @@ tf.app.flags.DEFINE_boolean(
 
 
 FLAGS = tf.app.flags.FLAGS
+
+def flatten(x): 
+    result = [] 
+    for el in x: 
+        print('Element', el.eval())
+        if isinstance(el, tuple): 
+            result.extend(flatten(el))
+        else: 
+            esult.append(el) 
+    return result
 
 def main(_):
     if not FLAGS.dataset_dir:
