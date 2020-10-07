@@ -31,7 +31,7 @@ SPLITS_TO_SIZES = {
     'train': 283,
     'test': 71,
 }
-NUM_CLASSES = 1
+NUM_CLASSES = 2
 
 
 def get_split(split_name, dataset_dir, file_pattern=None, reader=None):

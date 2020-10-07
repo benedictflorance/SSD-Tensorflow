@@ -22,7 +22,8 @@ from datasets import dataset_utils
 slim = tf.contrib.slim
 
 VOC_LABELS = {
-    'product': 0,
+    'background': 0,
+    'product': 1
 }
 
 
