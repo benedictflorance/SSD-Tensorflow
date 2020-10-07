@@ -255,15 +255,15 @@ def main(_):
             aps_voc07 = {}
             aps_voc12 = {}
             for c in tp_fp_metric[0].keys():
-                print(c)
                 # Precison and recall values.
                 prec, rec = tfe.precision_recall(*tp_fp_metric[0][c])
-
+                precision[c] = prec
+                recall[c] = rec
                 # Average precision VOC07.
                 v = tfe.average_precision_voc07(prec, rec)
                 summary_name = 'AP_VOC07/%s' % c
                 op = tf.summary.scalar(summary_name, v, collections=[])
-                # op = tf.Print(op, [v], summary_name)
+                op = tf.Print(op, [v], summary_name)
                 tf.add_to_collection(tf.GraphKeys.SUMMARIES, op)
                 aps_voc07[c] = v
 
@@ -274,6 +274,18 @@ def main(_):
                 # op = tf.Print(op, [v], summary_name)
                 tf.add_to_collection(tf.GraphKeys.SUMMARIES, op)
                 aps_voc12[c] = v
+
+            summary_name = 'Precision'
+            prec_val = tf.add_n(list(precision.values())) / len(precision)
+            op = tf.summary.scalar(summary_name, prec_val, collections=[])
+            op = tf.Print(op, [prec_val], summary_name)
+            tf.add_to_collection(tf.GraphKeys.SUMMARIES, op)
+
+            summary_name = 'Recall'
+            prec_val = tf.add_n(list(recall.values())) / len(recall)
+            op = tf.summary.scalar(summary_name, rec_val, collections=[])
+            op = tf.Print(op, [rec_val], summary_name)
+            tf.add_to_collection(tf.GraphKeys.SUMMARIES, op)
 
             # Mean average precision VOC07.
             summary_name = 'AP_VOC07/mAP'
