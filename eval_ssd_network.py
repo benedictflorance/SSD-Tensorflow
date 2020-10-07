@@ -104,13 +104,14 @@ tf.app.flags.DEFINE_boolean(
 FLAGS = tf.app.flags.FLAGS
 
 def flatten(x): 
+    print("X", x)
     result = [] 
     for el in x: 
-        print(el)
         if isinstance(el, tuple): 
             result.extend(flatten(el))
         else: 
-            result.append(el) 
+            result.append(el)
+    print("Result", result) 
     return result
 
 def main(_):
