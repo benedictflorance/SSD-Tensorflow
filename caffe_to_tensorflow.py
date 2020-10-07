@@ -16,7 +16,7 @@ slim = tf.contrib.slim
 tf.app.flags.DEFINE_string(
     'model_name', 'ssd_300_vgg', 'Name of the model to convert.')
 tf.app.flags.DEFINE_string(
-    'num_classes', 21, 'Number of classes in the dataset.')
+    'num_classes', 2, 'Number of classes in the dataset.')
 tf.app.flags.DEFINE_string(
     'caffemodel_path', None,
     'The path to the Caffe model file to convert.')
