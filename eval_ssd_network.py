@@ -106,6 +106,7 @@ FLAGS = tf.app.flags.FLAGS
 def flatten(x): 
     result = [] 
     for el in x: 
+        print(el)
         if isinstance(el, tuple): 
             result.extend(flatten(el))
         else: 
