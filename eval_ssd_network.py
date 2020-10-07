@@ -110,7 +110,7 @@ def flatten(x):
         if isinstance(el, tuple): 
             result.extend(flatten(el))
         else: 
-            esult.append(el) 
+            result.append(el) 
     return result
 
 def main(_):
