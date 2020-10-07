@@ -23,7 +23,7 @@ import matplotlib.cm as mpcm
 # =========================================================================== #
 # Some colormaps.
 # =========================================================================== #
-def colors_subselect(colors, num_classes=21):
+def colors_subselect(colors, num_classes=2):
     dt = len(colors) // num_classes
     sub_colors = []
     for i in range(num_classes):
@@ -34,7 +34,7 @@ def colors_subselect(colors, num_classes=21):
             sub_colors.append([c for c in color])
     return sub_colors
 
-colors_plasma = colors_subselect(mpcm.plasma.colors, num_classes=21)
+colors_plasma = colors_subselect(mpcm.plasma.colors, num_classes=2)
 colors_tableau = [(255, 255, 255), (31, 119, 180), (174, 199, 232), (255, 127, 14), (255, 187, 120),
                   (44, 160, 44), (152, 223, 138), (214, 39, 40), (255, 152, 150),
                   (148, 103, 189), (197, 176, 213), (140, 86, 75), (196, 156, 148),
