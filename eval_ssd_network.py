@@ -24,6 +24,7 @@ import tensorflow as tf
 import tf_extended as tfe
 import tf_utils
 from tensorflow.python.framework import ops
+from funcy import flatten
 
 from datasets import dataset_factory
 from nets import nets_factory
@@ -102,17 +103,6 @@ tf.app.flags.DEFINE_boolean(
 
 
 FLAGS = tf.app.flags.FLAGS
-
-def flatten(x): 
-    print("X", x)
-    result = [] 
-    for el in x: 
-        if isinstance(el, tuple): 
-            result.extend(flatten(el))
-        else: 
-            result.append(el)
-    print("Result", result) 
-    return result
 
 def main(_):
     if not FLAGS.dataset_dir:
@@ -325,7 +315,7 @@ def main(_):
                 checkpoint_path=checkpoint_path,
                 logdir=FLAGS.eval_dir,
                 num_evals=num_batches,
-                eval_op=flatten(list(names_to_updates.values())),
+                eval_op=list(names_to_updates.values()),
                 variables_to_restore=variables_to_restore,
                 session_config=config)
             # Log time spent.
