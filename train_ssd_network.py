@@ -369,7 +369,7 @@ def main(_):
         saver = tf.train.Saver(max_to_keep=5,
                                keep_checkpoint_every_n_hours=1.0,
                                write_version=2,
-                               pad_step_number=False)
+                               pad_step_number=True)
         slim.learning.train(
             train_tensor,
             logdir=FLAGS.train_dir,
