@@ -255,6 +255,7 @@ def main(_):
             aps_voc07 = {}
             aps_voc12 = {}
             for c in tp_fp_metric[0].keys():
+                print(c)
                 # Precison and recall values.
                 prec, rec = tfe.precision_recall(*tp_fp_metric[0][c])
 
