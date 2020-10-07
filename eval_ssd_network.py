@@ -284,7 +284,7 @@ def main(_):
             tf.add_to_collection(tf.GraphKeys.SUMMARIES, op)
 
             summary_name = 'Recall'
-            prec_val = tf.add_n(list(recall.values())) / len(recall)
+            rec_val = tf.add_n(list(recall.values())) / len(recall)
             op = tf.summary.scalar(summary_name, rec_val, collections=[])
             op = tf.Print(op, [rec_val], summary_name)
             tf.add_to_collection(tf.GraphKeys.SUMMARIES, op)
