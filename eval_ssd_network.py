@@ -254,6 +254,8 @@ def main(_):
             # Add to summaries precision/recall values.
             aps_voc07 = {}
             aps_voc12 = {}
+            precision = {}
+            recall = {}
             for c in tp_fp_metric[0].keys():
                 # Precison and recall values.
                 prec, rec = tfe.precision_recall(*tp_fp_metric[0][c])
